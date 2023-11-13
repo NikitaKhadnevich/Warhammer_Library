@@ -1,0 +1,11 @@
+.headerWrapper {
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  border: 2px solid honeydew;
+};
+
+.header + p {
+  color: white;
+  margin: auto
+}
