@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import './headerStyles.scss'
+import './_headerStyles.scss'
 
 function Header() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import './footerStyles.scss'
+import './_footerStyles.scss'
 
 function Footer() {
   return (

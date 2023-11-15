@@ -1,9 +1,10 @@
 .asideWrapper {
-  width: 20%;
-  height: 500px;
+  width: 100%;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   border: 1px solid salmon;
   background-color: saddlebrown;
+  grid-area: aside
 }

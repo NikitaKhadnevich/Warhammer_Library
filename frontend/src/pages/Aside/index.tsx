@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import './asideStyles.scss'
+import './_asideStyles.scss'
 
 function Aside() {
   return (

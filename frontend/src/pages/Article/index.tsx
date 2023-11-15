@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import './articleStyles.scss'
+import './_articleStyles.scss'
 
 function Article() {
   return (

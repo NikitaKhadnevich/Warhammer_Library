@@ -1,0 +1,24 @@
+@use 'src/constants/_baseStyleMixins.scss';
+@import 'src/constants/_appSize.scss';
+
+
+.mainPage {
+  background-color: wheat;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  padding: baseStyleMixins.$borderRadiusMid + 5px;
+  grid-template-areas:
+    "header header header header"
+    "article article article aside"
+    "footer footer footer footer";
+  @include baseStyleMixins.borderRadiusMid;
+  @include baseStyleMixins.border(border, 2px, green, solid);
+  @media (max-width: $stablet) {
+      grid-template-areas:
+      "header"
+      "article"
+      "aside"
+      "footer";
+    }
+}

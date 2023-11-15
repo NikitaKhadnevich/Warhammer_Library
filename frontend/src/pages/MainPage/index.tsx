@@ -6,7 +6,8 @@ import Article from '../Article'
 import Footer from '../Footer'
 import Aside from '../Aside';
 
-import './mainPageStyles.scss'
+import './_mainPageStyles.scss'
+
 
 function MainPage() {
   return (
