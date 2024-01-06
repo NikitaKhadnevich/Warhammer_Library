@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import cn from "classnames";
 import "./_headerStyles.scss";
 
 import {
   GET_STRU_REQUESTED,
-  GET_STRU_SUCCEED,
-  GET_STRU_FAILED,
   SET_CLEARED_DATA,
 } from "src/store/currentStates/structureState/StructureToolkit";
 
