@@ -13,8 +13,8 @@ function Article() {
       <p> Its Article</p>
       <div className={cn("articleWrapper")}>
         <ul>
-          {myData.map((list, index) => {
-            return <li key={list.userId}>{list.title}</li>;
+          {myData.map((list) => {
+            return <li key={list.id}>{list.title}</li>;
           })}
         </ul>
       </div>

@@ -11,7 +11,9 @@ import {
 
 import { IDataStruInterface } from "./@types";
 
-interface Response {
+//localhost:3100/WAHA_NOTES
+
+http: interface Response {
   json<T>(): Promise<T>;
 }
 
@@ -25,6 +27,18 @@ export function* getData({ payload }) {
   }
 }
 
+export function* getWaha() {
+  try {
+    const data: Response = yield fetch("http://localhost:3100/WAHA_NOTES");
+    const res: any = yield data.json();
+    console.log("res:", res);
+  } catch {}
+}
+
 export function* getDataSaga() {
   yield takeLatest(GET_STRU_REQUESTED, getData);
+}
+
+export function* getWahaSaga() {
+  yield takeLatest(GET_STRU_REQUESTED, getWaha);
 }
