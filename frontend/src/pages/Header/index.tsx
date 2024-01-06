@@ -7,7 +7,10 @@ import {
   GET_STRU_REQUESTED,
   GET_STRU_SUCCEED,
   GET_STRU_FAILED,
+  SET_CLEARED_DATA,
 } from "src/store/currentStates/structureState/StructureToolkit";
+
+import { IDataStruInterface } from "src/store/currentStates/structureState/@types";
 
 import {
   StructureDataSTRU,
@@ -19,22 +22,25 @@ function Header() {
   const getDataId = useSelector(StructureDataSTRU);
   const isFetching = useSelector(StructureIsFetching);
 
-  const getData = (currentStructure: string) => {
+  const getData = <T extends string>(currentStructure: T) => {
     dispatches(GET_STRU_REQUESTED(currentStructure));
   };
 
-  const getClearData = (array) => {
-    //@ts-ignore
+  const getClearData = <T extends IDataStruInterface>(array: T[]) => {
+    if (!array) return;
     const idsObj = {};
     const data = array
-      .map((item, index) => {
+      .map((item) => {
         if (idsObj[item.id] !== true) {
           idsObj[item.id] = true;
           return item;
         }
       })
       .filter((item) => !!item);
-    console.log("data", data, idsObj);
+    if (data) {
+      const dataDefined = data as T[];
+      return dispatches(SET_CLEARED_DATA(dataDefined));
+    }
   };
 
   return (
@@ -47,7 +53,7 @@ function Header() {
       <button
         onClick={() => {
           if (getDataId[0]) {
-            return getData(getDataId.length + 1);
+            return getData((getDataId.length + 1).toString());
           }
           getData("1");
         }}

@@ -9,39 +9,16 @@ import {
   GET_STRU_FAILED,
 } from "./StructureToolkit";
 
-// export function* getSTRUSaga({ payload }) {
-//   console.log("getSTRUSaga");
-//   try {
-//     const stru = yield fetch(`${proxy}/${payload}`, {
-//       headers: { "X-Requested-With": "XMLHttpRequest" },
-//     });
-//     const res = yield stru.json();
-//     yield put(GET_STRU_SUCCEED(res)); // Redux-toolkit
-//   } catch (error) {
-//     yield put(GET_STRU_FAILED(proxy)); // Redux-toolkit
-//   }
-// }
+import { IDataStruInterface } from "./@types";
 
-// export function* watchSTRUSaga() {
-//   yield takeLatest(GET_STRU_REQUESTED, getSTRUSaga);
-// }
+interface Response {
+  json<T>(): Promise<T>;
+}
 
 export function* getData({ payload }) {
   try {
-    const data = yield fetch(`${proxy}/${payload}`);
-    const res = yield data.json();
-    console.log("getDataSaga:", res);
-    yield put(GET_STRU_SUCCEED(res));
-  } catch (error) {
-    yield put(GET_STRU_FAILED(proxy));
-  }
-}
-
-export function* getData2({ payload }) {
-  try {
-    const data = yield fetch(`${proxy}/${payload}`);
-    const res = yield data.json();
-    console.log("getDataSaga2:", res);
+    const data: Response = yield fetch(`${proxy}/${payload}`);
+    const res: IDataStruInterface = yield data.json();
     yield put(GET_STRU_SUCCEED(res));
   } catch (error) {
     yield put(GET_STRU_FAILED(proxy));
@@ -50,8 +27,4 @@ export function* getData2({ payload }) {
 
 export function* getDataSaga() {
   yield takeLatest(GET_STRU_REQUESTED, getData);
-}
-
-export function* getDataSaga2() {
-  yield takeLatest(GET_STRU_REQUESTED, getData2);
 }
