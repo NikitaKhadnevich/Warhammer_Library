@@ -1,0 +1,29 @@
+//Создаем переменные
+$borderRadiusBase: 4;
+$borderRadiusMid: 8;
+$borderRadiusLarge: 12;
+$borderRadiusMax: 18;
+
+//Создаем миксины
+@mixin borderRadiusBase {
+  border-radius: $borderRadiusBase + px;
+}
+@mixin borderRadiusMid {
+  border-radius: $borderRadiusMid + px;
+}
+@mixin borderRadiusLarge {
+  border-radius: $borderRadiusLarge + px;
+}
+@mixin borderRadiusMax {
+  border-radius: $borderRadiusMax + px;
+}
+
+//Миксины с переменной/ми
+@mixin border($property, $bold, $color, $type: dashed) {
+  //Условие на новые стили
+  @if $color == green {
+    #{$property}: $type $bold $color;
+    box-shadow: 0px 0px 5px 5px rgba(165, 165, 165, 40) inset;
+  };
+  #{$property}: $type $bold $color;
+}

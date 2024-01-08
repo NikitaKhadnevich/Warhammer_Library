@@ -1,4 +1,5 @@
 import React from "react";
+import './constants/_appSize.scss'
 import MainPage from "./pages/MainPage";
 
 function App() {
