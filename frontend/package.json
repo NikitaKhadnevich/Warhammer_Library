@@ -24,8 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "backDev": "json-server --watch db.json --port 3001 & json-server --watch notes.json --port 3100"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [

@@ -50,10 +50,11 @@ function Header() {
       Its Header
       <button
         onClick={() => {
-          if (getDataId[0]) {
-            return getData((getDataId.length + 1).toString());
-          }
-          getData("1");
+          getData("/?id=5");
+          // if (getDataId[0]) {
+          //   return getData((getDataId.length + 1).toString());
+          // }
+          // getData("1");
         }}
         disable={!!isFetching ? true : false}
       >

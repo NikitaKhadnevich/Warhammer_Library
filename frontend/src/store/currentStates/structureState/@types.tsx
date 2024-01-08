@@ -9,6 +9,5 @@ export interface IStruInterfaceT<T> {
   url: string;
   isFetching: boolean;
   path: string;
-  testValue: string;
   dataSTRU: Array<T>;
 }

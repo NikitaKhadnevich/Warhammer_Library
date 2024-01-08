@@ -1,7 +1,19 @@
 {
-  "EMPTY_DATA": [
+  "usersBase": [
     {
-      "id": "1"
+      "id": "1",
+      "name": "test1",
+      "password": "123"
+    },
+    {
+      "id": "2",
+      "name": "test2",
+      "password": "456"
+    },
+    {
+      "id": "3",
+      "name": "test3",
+      "password": "789"
     }
   ]
 }
