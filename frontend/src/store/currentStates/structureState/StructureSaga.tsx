@@ -10,9 +10,7 @@ import {
 
 import { IDataStruInterface } from "./@types";
 
-//localhost:3100/WAHA_NOTES
-
-http: interface Response {
+interface Response {
   json<T>(): Promise<T>;
 }
 

@@ -7,9 +7,10 @@ export const authStore: IAuthInterface = {
   isAuth: false,
   isAuthLoading: false,
   userInfo: {
-    name: "",
+    email: "",
     password: "",
   },
+  accessToken: "",
 };
 
 export interface Action<T> {
@@ -27,10 +28,11 @@ export const authStoreSlice = createSlice({
       newState.userInfo = action.payload;
       return newState;
     },
-    GET_AUTH_SUCCEED: (state: IAuthInterface, action: Action<boolean>) => {
+    GET_AUTH_SUCCEED: (state: IAuthInterface, action: Action<string>) => {
       const newState = { ...state };
-      newState.isAuth = action.payload;
+      newState.isAuth = true;
       newState.isAuthLoading = false;
+      newState.accessToken = action.payload;
       return newState;
     },
     GET_AUTH_FAILED: (state: IAuthInterface, action) => {

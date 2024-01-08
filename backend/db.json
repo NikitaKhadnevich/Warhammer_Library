@@ -1,19 +1,55 @@
 {
-  "usersBase": [
+  "users": [
     {
-      "id": "1",
-      "name": "test1",
-      "password": "123"
+      "email": "WWW@ya.ru",
+      "password": "$2a$10$kwncKd7BtQTmVGq.F4RY0uvWTJldKpb6prHU/OMDgeywcwfGq5DcW",
+      "id": 1
     },
     {
-      "id": "2",
-      "name": "test2",
-      "password": "456"
+      "email": "2est@ya.ru",
+      "password": "$2a$10$/MMwJds4lmM8wPIxNjszzuwkEG6yOuwWZvpmYvb3NS/qUPQvxGkTy",
+      "id": 2
     },
     {
-      "id": "3",
-      "name": "test3",
-      "password": "789"
+      "email": "Taras@ya.ru",
+      "password": "$2a$10$zaYW2VWqD/f2PihP9Mvr3ei5/0Wp0Ud.VrDPbTyfBqXfbsEb8cXZK",
+      "id": 3
+    },
+    {
+      "email": "123@ya.ru",
+      "password": "$2a$10$sGpUaqF3fl0Ji/A7pfsrSuC2pwO7zPwOYRNDbq0Uti/rRJvFqyv02",
+      "id": 4
+    },
+    {
+      "email": "qwerty@ya.ru",
+      "password": "$2a$10$jsY5vaXv..i0NCs9vZh21./.lStzHAMlt86kGG1dDd7Tzzm8E3lHK",
+      "id": 5
+    },
+    {
+      "email": "testewq@ya.ru",
+      "password": "$2a$10$E58lCtQBMq4zRL1W520Zy.qcQZDSnfi5uOgu7NiWwNsaY3PoeCpxm",
+      "id": 6
+    },
+    {
+      "email": "taras@ya.ru",
+      "password": "$2a$10$94HxTuIErD6U.mk5vGRtH.5GBaOX/.GhhJtqAA5NmLtyl1seBykl2",
+      "id": 7
+    },
+    {
+      "email": "EEE@ya.ru",
+      "password": "$2a$10$mDldJugjow.Z0s7UqebZPel/vEl22ycKS0P2cSksqcKRizvQeGO3O",
+      "id": 8
+    },
+    {
+      "email": "Max@ya.ru",
+      "password": "$2a$10$Ta0DUgF0bCej6iH0j0ScrO1tH20/NvX4Ldr3QFhtKsfuBezg3tHUm",
+      "id": 9
+    },
+    {
+      "email": "max2@ya.ru",
+      "password": "$2a$10$4lJIaQATmEP.sWQ9Khk4y.ZU/bIphw6dLqoucfJIC.hF4XS86ersm",
+      "id": 10
     }
-  ]
+  ],
+  "messages": []
 }

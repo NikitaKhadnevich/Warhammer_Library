@@ -4,12 +4,12 @@ import {
   getWahaSaga,
 } from "./currentStates/structureState/StructureSaga";
 
-import { getAuthSaga } from "./currentStates/authState/AuthSaga";
+import { getSignUpSaga } from "./currentStates/authState/AuthSaga";
 
 function* rootSaga() {
   yield fork(getDataSaga);
   yield fork(getWahaSaga);
-  yield fork(getAuthSaga);
+  yield fork(getSignUpSaga);
 }
 
 export default rootSaga;

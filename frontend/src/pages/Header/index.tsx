@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import cn from "classnames";
 import "./_headerStyles.scss";
+import { paths } from "src/constants/api/paths";
 
 import {
   GET_STRU_REQUESTED,
@@ -19,6 +21,7 @@ function Header() {
   const dispatches = useDispatch();
   const getDataId = useSelector(StructureDataSTRU);
   const isFetching = useSelector(StructureIsFetching);
+  const navigate = useNavigate();
 
   const getData = <T extends string>(currentStructure: T) => {
     dispatches(GET_STRU_REQUESTED(currentStructure));
@@ -50,11 +53,18 @@ function Header() {
       Its Header
       <button
         onClick={() => {
-          getData("/?id=5");
-          // if (getDataId[0]) {
-          //   return getData((getDataId.length + 1).toString());
-          // }
-          // getData("1");
+          navigate(paths.login);
+        }}
+        disable={!!isFetching ? true : false}
+      >
+        ReturnSignUp
+      </button>
+      <button
+        onClick={() => {
+          if (getDataId[0]) {
+            return getData((getDataId.length + 1).toString());
+          }
+          getData("1");
         }}
         disable={!!isFetching ? true : false}
       >
