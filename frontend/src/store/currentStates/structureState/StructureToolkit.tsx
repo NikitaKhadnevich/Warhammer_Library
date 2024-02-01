@@ -10,7 +10,6 @@ export const initialStruState: IStruType = {
   url: "",
   isFetching: false,
   path: "",
-  testValue: "this is text value",
 };
 
 export interface Action<T> {
@@ -23,8 +22,10 @@ export const structures = createSlice({
   initialState: initialStruState,
   reducers: {
     GET_STRU_REQUESTED: (state: IStruType, action: Action<string>) => {
-      //@ts-ignore
-      state, (state.url = action.payload), (state.isFetching = true);
+      const newState = { ...state };
+      newState.isFetching = true;
+      newState.url = action.payload;
+      return newState;
     },
     GET_STRU_SUCCEED: (
       state: IStruType,

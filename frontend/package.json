@@ -7,6 +7,7 @@
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
+    "axios": "^1.6.5",
     "classnames": "^2.5.1",
     "cn": "^0.1.1",
     "json-server": "^0.17.4",
@@ -24,8 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "backDev": "json-server --watch db.json --port 3001 & json-server --watch notes.json --port 3100"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [

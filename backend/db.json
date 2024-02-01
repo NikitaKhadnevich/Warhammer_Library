@@ -1,7 +1,30 @@
 {
-  "EMPTY_DATA": [
+  "users": [
     {
-      "id": "1"
+      "email": "www@ya.ru",
+      "password": "$2a$10$CHWOPeROntBxu/MlAXtZXurnIJ7jo54H.SZgXf1qjFW0SGmfqrwHK",
+      "id": 1
+    },
+    {
+      "email": "MMM@ya.ru",
+      "password": "$2a$10$JASApl9a7HpbqGgJAGJYU.eEIJn/RM7iKDrF/zSIAS3MZwPHZL/BC",
+      "id": 2
+    },
+    {
+      "email": "CCC@ya.ru",
+      "password": "$2a$10$BXoA5V3ZLH96.4OWiTpfO.HUe1zQaPVqaKQgy/YLVVnh.3fxg16yu",
+      "id": 3
+    },
+    {
+      "email": "EEE@ya.ry",
+      "password": "$2a$10$LC/HInNCIIM9pX2UFn3c3.35OrLpRQXJLaGtZSQZ24v.UKQ2BSOoG",
+      "id": 4
+    },
+    {
+      "email": "ZZZ@ya.ru",
+      "password": "$2a$10$isK/qAq51uPFbqyVM8CBReXlzhNjS8z9DHhhLMraC/ecNNKv/EB16",
+      "id": 5
     }
-  ]
+  ],
+  "messages": []
 }
