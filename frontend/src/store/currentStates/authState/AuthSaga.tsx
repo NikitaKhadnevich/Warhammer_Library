@@ -1,18 +1,22 @@
 import { put, takeLatest } from "redux-saga/effects";
 import { apiPaths } from "src/constants/api/paths";
 import { signUp } from "src/api/authApi";
+import { IGET_AUTH_SUCCEED } from "src/store/currentStates/authState/@types";
+import localForage from "localforage";
 
-interface Response {}
-
-import { GET_AUTH_REQUESTED, GET_AUTH_SUCCEED } from "./AuthToolkit";
+import {
+  GET_AUTH_REQUESTED,
+  GET_AUTH_SUCCEED,
+  GET_AUTH_FAILED,
+} from "./AuthToolkit";
 
 export function* getSignUp({ payload }) {
-  console.log("payload getSignUp", payload);
-  try {
-    const res: any = yield signUp("register", payload);
-    yield put(GET_AUTH_SUCCEED(res.accessToken));
-  } catch (error) {
-    console.log("error");
+  const res: IGET_AUTH_SUCCEED | string = yield signUp("register", payload);
+  if (typeof res === "object") {
+    localStorage.setItem(res.user.id.toString(), res.accessToken);
+    yield put(GET_AUTH_SUCCEED(res));
+  } else {
+    yield put(GET_AUTH_FAILED(res));
   }
 }
 

@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-sequences */
 import { createSlice } from "@reduxjs/toolkit";
-import { IAuthInterface } from "./@types";
+import { IAuthInterface, IGET_AUTH_SUCCEED } from "./@types";
 
 export const authStore: IAuthInterface = {
   isAuth: false,
   isAuthLoading: false,
-  userInfo: {
+  user: {
     email: "",
-    password: "",
+    id: null,
   },
   accessToken: "",
+  errorMessage: null,
 };
 
 export interface Action<T> {
@@ -25,24 +26,45 @@ export const authStoreSlice = createSlice({
     GET_AUTH_REQUESTED: (state: IAuthInterface, action: Action<any>) => {
       const newState = { ...state };
       newState.isAuthLoading = true;
-      newState.userInfo = action.payload;
+      newState.errorMessage = null;
       return newState;
     },
-    GET_AUTH_SUCCEED: (state: IAuthInterface, action: Action<string>) => {
-      const newState = { ...state };
+    GET_AUTH_SUCCEED: (
+      state: IAuthInterface,
+      action: Action<IGET_AUTH_SUCCEED>
+    ) => {
+      const newState = { ...state, ...action.payload };
+      newState.isAuthLoading = false;
+      newState.errorMessage = null;
       newState.isAuth = true;
-      newState.isAuthLoading = false;
-      newState.accessToken = action.payload;
+
       return newState;
     },
-    GET_AUTH_FAILED: (state: IAuthInterface, action) => {
+    GET_AUTH_FAILED: (state: IAuthInterface, action: Action<string>) => {
       const newState = { ...state };
       newState.isAuthLoading = false;
+      newState.errorMessage = action.payload;
+      return newState;
+    },
+    SET_LOGOUT: (state: IAuthInterface) => {
+      const newState = { ...state };
+      newState.errorMessage = null;
+      newState.isAuth = false;
+      newState.accessToken = null;
+      newState.user = {
+        ...newState.user,
+        email: null,
+        id: null,
+      };
       return newState;
     },
   },
 });
 
 export default authStoreSlice.reducer;
-export const { GET_AUTH_REQUESTED, GET_AUTH_SUCCEED, GET_AUTH_FAILED } =
-  authStoreSlice.actions;
+export const {
+  GET_AUTH_REQUESTED,
+  GET_AUTH_SUCCEED,
+  GET_AUTH_FAILED,
+  SET_LOGOUT,
+} = authStoreSlice.actions;

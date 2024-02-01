@@ -17,16 +17,26 @@ import {
   StructureIsFetching,
 } from "src/store/currentStates/structureState/StructureSelectors";
 
+import { AuthIsUser } from "src/store/currentStates/authState/AuthSelectors";
+import { SET_LOGOUT } from "src/store/currentStates/authState/AuthToolkit";
+
 function Header() {
   const dispatches = useDispatch();
   const getDataId = useSelector(StructureDataSTRU);
   const isFetching = useSelector(StructureIsFetching);
+  const userInfo = useSelector(AuthIsUser);
+
   const navigate = useNavigate();
 
   const getData = <T extends string>(currentStructure: T) => {
     dispatches(GET_STRU_REQUESTED(currentStructure));
   };
-
+  const setLogout = <T extends string | undefined>(id: T) => {
+    if (id) {
+      dispatches(SET_LOGOUT());
+      localStorage.removeItem(id.toString());
+    }
+  };
   const getClearData = <T extends IDataStruInterface>(array: T[]) => {
     if (!array) return;
     const idsObj = {};
@@ -52,12 +62,10 @@ function Header() {
     >
       Its Header
       <button
-        onClick={() => {
-          navigate(paths.login);
-        }}
+        onClick={() => setLogout(userInfo.id)}
         disable={!!isFetching ? true : false}
       >
-        ReturnSignUp
+        Log Out
       </button>
       <button
         onClick={() => {

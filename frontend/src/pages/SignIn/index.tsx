@@ -25,12 +25,6 @@ function SignIn() {
 
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (isAuth) {
-  //     navigate(paths.library);
-  //   }
-  // }, [isAuth]);
-
   return (
     <div className={cn("signinWrapper")}>
       Login
