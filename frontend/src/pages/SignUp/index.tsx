@@ -5,7 +5,7 @@ import axios from "axios";
 
 import cn from "classnames";
 import "./_signUpStyles.scss";
-import { GET_AUTH_REQUESTED } from "src/store/currentStates/authState/AuthToolkit";
+import { GET_SIGNUP_REQUESTED } from "src/store/currentStates/authState/AuthToolkit";
 import {
   AuthIsAuth,
   AuthIsWarnOrErrorMessage,
@@ -18,14 +18,14 @@ function SignUp() {
     password: "",
   });
   const isAuth = useSelector(AuthIsAuth);
+  const navigate = useNavigate();
   const isWarnOrErrorMessage = useSelector(AuthIsWarnOrErrorMessage);
   const dispatches = useDispatch();
   const setDataToAuthStore = <T extends Record<string, string>>(
     formData: T
   ) => {
-    dispatches(GET_AUTH_REQUESTED(formData));
+    dispatches(GET_SIGNUP_REQUESTED(formData));
   };
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (isAuth) {

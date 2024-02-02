@@ -3,16 +3,21 @@ export interface IAuthInterface {
     email: string | null;
     id: number | null;
   } | null;
-  accessToken: string | null;
   errorMessage: string | null;
-  isAuth: boolean;
-  isAuthLoading: boolean;
+  isAuth: boolean | null;
+  isAuthLoading: boolean | null;
 }
 
-export interface IGET_AUTH_SUCCEED {
-  accessToken: string;
+export interface IGET_LOGIN_SUCCEED {
   user: {
     email: string;
     id: number;
   };
+  accessToken?: string;
+}
+
+export enum EReserveErrorMessages {
+  signUpError = "Sign Up Error :(",
+  signInError = "Login Error :(",
+  reloadError = "Authorization Error :(",
 }

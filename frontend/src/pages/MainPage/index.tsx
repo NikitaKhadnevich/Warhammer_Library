@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import cn from "classnames";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+
+import { AuthIsUser } from "src/store/currentStates/authState/AuthSelectors";
 
 import Header from "../Header";
 import Article from "../Article";
@@ -11,12 +15,12 @@ import "./_mainPageStyles.scss";
 function MainPage() {
   return (
     <>
-      <main className={cn("mainPage")}>
+      <div className={cn("mainPage")}>
         <Header />
         <Article />
         <Aside />
         <Footer />
-      </main>
+      </div>
     </>
   );
 }
