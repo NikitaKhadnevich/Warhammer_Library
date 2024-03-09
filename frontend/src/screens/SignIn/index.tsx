@@ -1,31 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 import cn from "classnames";
-import "./_signUpStyles.scss";
-import { GET_AUTH_REQUESTED } from "src/store/currentStates/authState/AuthToolkit";
+import { useNavigate } from "react-router-dom";
+
+import "./_signInStyles.scss";
+import { GET_LOGIN_REQUESTED } from "src/store/currentStates/authState/AuthToolkit";
 import {
   AuthIsAuth,
   AuthIsWarnOrErrorMessage,
+  AuthIsLoading,
 } from "src/store/currentStates/authState/AuthSelectors";
 import { paths } from "src/constants/api/paths";
 
-function SignUp() {
+function SignIn() {
   const [form, setForm] = useState<object>({
     email: "",
     password: "",
   });
   const isAuth = useSelector(AuthIsAuth);
+  const navigate = useNavigate();
   const isWarnOrErrorMessage = useSelector(AuthIsWarnOrErrorMessage);
+
   const dispatches = useDispatch();
   const setDataToAuthStore = <T extends Record<string, string>>(
     formData: T
   ) => {
-    dispatches(GET_AUTH_REQUESTED(formData));
+    dispatches(GET_LOGIN_REQUESTED(formData));
   };
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (isAuth) {
@@ -45,8 +47,15 @@ function SignUp() {
           {isWarnOrErrorMessage}
         </div>
       )}
-      <div className={cn("signUpWrapper")}>
-        Register
+      <div className={cn("signinWrapper")}>
+        <button
+          onClick={() => {
+            navigate(paths.register);
+          }}
+        >
+          To Registration
+        </button>
+        Login
         <form>
           <input
             type="text"
@@ -66,14 +75,14 @@ function SignUp() {
         <button
           onClick={() => {
             setDataToAuthStore(form);
-            console.log("form:", form);
+            console.log("form Sign IN:", form);
           }}
         >
-          Sign Up
+          Login
         </button>
       </div>
     </>
   );
 }
 
-export default SignUp;
+export default SignIn;

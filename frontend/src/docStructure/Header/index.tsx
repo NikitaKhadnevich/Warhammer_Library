@@ -34,7 +34,7 @@ function Header() {
   const setLogout = <T extends string | undefined>(id: T) => {
     if (id) {
       dispatches(SET_LOGOUT());
-      localStorage.removeItem(id.toString());
+      localStorage.removeItem("token");
     }
   };
   const getClearData = <T extends IDataStruInterface>(array: T[]) => {
@@ -50,6 +50,7 @@ function Header() {
       .filter((item) => !!item);
     if (data) {
       const dataDefined = data as T[];
+
       return dispatches(SET_CLEARED_DATA(dataDefined));
     }
   };
