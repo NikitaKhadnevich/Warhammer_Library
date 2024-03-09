@@ -4,20 +4,13 @@ import "./_articleStyles.scss";
 import { useSelector } from "react-redux";
 import { StructureDataSTRU } from "src/store/currentStates/structureState/StructureSelectors";
 import { IDataStruInterface } from "src/store/currentStates/structureState/@types";
+import { apiPaths } from "src/constants/api/paths";
 
-function Article() {
-  const myData: Array<IDataStruInterface> = useSelector(StructureDataSTRU);
-
+function Article({ children }: React.Node) {
   return (
     <article className={cn("articleWrapper")}>
-      <p> Its Article</p>
-      <div className={cn("articleWrapper")}>
-        <ul>
-          {myData.map((list) => {
-            return <li key={list.id}>{list.title}</li>;
-          })}
-        </ul>
-      </div>
+      <p>Article Wrapper</p>
+      {children}
     </article>
   );
 }
