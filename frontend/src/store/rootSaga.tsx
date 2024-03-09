@@ -3,6 +3,7 @@ import {
   getDataSaga,
   getWahaSaga,
   getBooksSaga,
+  getWahaNotesSaga,
 } from "./currentStates/structureState/StructureSaga";
 
 import {
@@ -18,6 +19,7 @@ function* rootSaga() {
   yield fork(getSignUpSaga);
   yield fork(getSignInSaga);
   yield fork(getReloadPageSaga);
+  yield fork(getWahaNotesSaga);
 }
 
 export default rootSaga;

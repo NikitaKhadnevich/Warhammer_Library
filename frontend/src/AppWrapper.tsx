@@ -8,6 +8,7 @@ import {
   AuthIsAuth,
   AuthIsLoading,
 } from "./store/currentStates/authState/AuthSelectors";
+
 import { paths, apiPaths } from "./constants/api/paths";
 import {
   GET_LOGIN_REQUESTED,
@@ -20,9 +21,10 @@ import "./_appWrapper.scss";
 
 import {
   REQUEST_BOOKS_LIBRARY,
-  SET_BOOKS_LIBRARY,
-  ERROR_REQUEST_BOOKS_LIBRARY,
+  REQUEST_NOTES_LIBRARY,
 } from "./store/currentStates/structureState/StructureToolkit";
+import Header from "./docStructure/Header";
+import Footer from "./docStructure/Footer";
 
 function AppWrapper({ children }: React.Node) {
   const isAuth = useSelector(AuthIsAuth);
@@ -43,16 +45,9 @@ function AppWrapper({ children }: React.Node) {
   const noAuth = isAuth === false;
   const isFetching = isAuthLoading === true;
 
-  console.log(
-    "noAuth, isFetching, reloadFirst, token:",
-    noAuth,
-    isFetching,
-    isReloadState,
-    dataFromToken
-  );
-
   const getBooksRequest = () => {
     dispatches(REQUEST_BOOKS_LIBRARY());
+    dispatches(REQUEST_NOTES_LIBRARY());
   };
 
   useEffect(() => {
@@ -92,7 +87,13 @@ function AppWrapper({ children }: React.Node) {
     );
   }
 
-  return <main className={cn("appWrapper")}>{children}</main>;
+  return (
+    <>
+      <Header />
+      <main className={cn("appWrapper")}>{children}</main>;
+      <Footer />
+    </>
+  );
 }
 
 export default AppWrapper;

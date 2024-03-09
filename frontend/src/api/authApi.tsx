@@ -51,6 +51,7 @@ const signReload = async <T extends string, U extends Record<string, string>>(
         Authorization: `Bearer ${token}`,
       },
     });
+    console.log("request.data;", request.data);
     return request.data;
   } catch (error) {
     const errorText: string = error?.response?.data;

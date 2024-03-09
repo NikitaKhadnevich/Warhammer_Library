@@ -7,6 +7,8 @@
   "license": "ISC",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
+    "@tanstack/react-query": "^5.25.0",
+    "@tanstack/react-query-devtools": "^5.25.0",
     "axios": "^1.6.5",
     "classnames": "^2.5.1",
     "cn": "^0.1.1",
@@ -40,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.20.1",
     "@types/node": "^20.10.6",
     "react-scripts": "^5.0.1"
   }

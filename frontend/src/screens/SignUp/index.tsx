@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import cn from "classnames";
+
 import "./_signUpStyles.scss";
 import { GET_SIGNUP_REQUESTED } from "src/store/currentStates/authState/AuthToolkit";
 import {
@@ -46,6 +46,13 @@ function SignUp() {
         </div>
       )}
       <div className={cn("signUpWrapper")}>
+        <button
+          onClick={() => {
+            navigate(paths.login);
+          }}
+        >
+          To Sign In
+        </button>
         Register
         <form>
           <input

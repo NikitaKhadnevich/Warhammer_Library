@@ -1,0 +1,12 @@
+.personaContentWrapper {
+  width: 100%;
+  min-height: 200px;
+  max-height: 1000px;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid aqua;
+  background-color: silver;
+  grid-area: article;
+  overflow-y: scroll;
+}

@@ -50,6 +50,7 @@ function Header() {
       .filter((item) => !!item);
     if (data) {
       const dataDefined = data as T[];
+
       return dispatches(SET_CLEARED_DATA(dataDefined));
     }
   };

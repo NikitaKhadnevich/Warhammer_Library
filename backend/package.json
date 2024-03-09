@@ -6,10 +6,10 @@
   "scripts": {
     "startBack": "concurrently \"npm run backDev\" \"npm run backLibrary\" \"npm run backMedia\" \"npm run backAuth\"",
     "start": "react-scripts start",
-    "backDev": "json-server --watch db.json --port 3001 & json-server --watch notes.json --port 3002",
-    "backLibrary": "json-server --watch library.json --port 3003",
-    "backMedia": "json-server --watch empty.json -s ./src/assets --port 3004",
-    "backAuth": "json-server-auth db.json -r routes.json --port 3005"
+    "backDev": "json-server --watch db.json --port 3011 & json-server --watch notes.json --port 3012",
+    "backLibrary": "json-server --watch library.json --port 3013",
+    "backMedia": "json-server --watch empty.json -s ./src/assets --port 3014",
+    "backAuth": "json-server-auth db.json -r routes.json --port 3015"
   },
   "author": "",
   "license": "ISC",

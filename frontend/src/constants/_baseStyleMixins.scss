@@ -24,6 +24,6 @@ $borderRadiusMax: 18;
   @if $color == green {
     #{$property}: $type $bold $color;
     box-shadow: 0px 0px 5px 5px rgba(165, 165, 165, 40) inset;
-  };
+  }
   #{$property}: $type $bold $color;
 }

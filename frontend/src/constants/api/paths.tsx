@@ -1,11 +1,11 @@
 export const apiPaths: Record<string, string> = Object.freeze({
-  usersBase: "http://localhost:3001/usersBase",
-  wahaNotes: "http://localhost:3002/wahaNotes",
-  wahaLibrary: "http://localhost:3003/wahaLibrary",
-  bookAvatars: "http://localhost:3004/images/bookAvatars",
+  usersBase: "http://localhost:3011/usersBase",
+  wahaNotes: "http://localhost:3012/wahaNotes",
+  wahaLibrary: "http://localhost:3013/wahaLibrary",
+  bookAvatars: "http://localhost:3014/images/bookAvatars",
   //Для получения юзера и списка заметок
-  authPath: "http://localhost:3005",
-  testTodos: "https://jsonplaceholder.typicode.com",
+  authPath: "http://localhost:3015",
+  testTodos: "https://jsonplaceholder.typicode.com/todos/",
 });
 
 export const paths: Record<string, string> = Object.freeze({
@@ -14,4 +14,6 @@ export const paths: Record<string, string> = Object.freeze({
   register: "/register",
   logout: "/logout",
   test: "/test",
+  persona: "/persona",
+  structure: "/structure",
 });

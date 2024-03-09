@@ -1,9 +1,18 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-sequences */
 import { createSlice } from "@reduxjs/toolkit";
-import { IDataStruInterface, IBooksLibrary, IStruInterfaceT } from "./@types";
+import {
+  IDataStruInterface,
+  IBooksLibrary,
+  INotesLibrary,
+  IStruInterfaceT,
+} from "./@types";
 
-export type IStruType = IStruInterfaceT<IDataStruInterface, IBooksLibrary>;
+export type IStruType = IStruInterfaceT<
+  IDataStruInterface,
+  IBooksLibrary,
+  INotesLibrary
+>;
 
 export const initialStruState: IStruType = {
   dataSTRU: [],
@@ -12,6 +21,7 @@ export const initialStruState: IStruType = {
   path: "",
   booksLibrary: [],
   errorMessage: null,
+  notesLibrary: [],
 };
 
 export interface Action<T> {
@@ -38,6 +48,23 @@ export const structures = createSlice({
       const newState = { ...state };
       newState.isFetching = false;
       newState.booksLibrary = action.payload;
+      return newState;
+    },
+    REQUEST_NOTES_LIBRARY: (state: IStruType) => {
+      const newState = { ...state };
+      newState.isFetching = true;
+      return newState;
+    },
+    SET_NOTES_LIBRARY: (state: IStruType, action: Action<any>) => {
+      const newState = { ...state };
+      newState.isFetching = false;
+      newState.notesLibrary = action.payload;
+      return newState;
+    },
+    ERROR_REQUEST_NOTES_LIBRARY: (state: IStruType, action: Action<string>) => {
+      const newState = { ...state };
+      newState.isFetching = false;
+      newState.errorMessage = action.payload;
       return newState;
     },
 
@@ -83,4 +110,7 @@ export const {
   GET_STRU_SUCCEED,
   GET_STRU_FAILED,
   SET_CLEARED_DATA,
+  REQUEST_NOTES_LIBRARY,
+  SET_NOTES_LIBRARY,
+  ERROR_REQUEST_NOTES_LIBRARY,
 } = structures.actions;

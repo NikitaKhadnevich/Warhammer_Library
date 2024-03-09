@@ -12,11 +12,23 @@ export interface IBooksLibrary {
   userId: number;
 }
 
-export interface IStruInterfaceT<T, B> {
+export interface INotesLibrary {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  isActive: boolean;
+  isChange: boolean;
+  isShared: boolean;
+  sharedTime: string;
+}
+
+export interface IStruInterfaceT<T, B, N> {
   url: string;
   isFetching: boolean;
   path: string;
   errorMessage: string | null;
   dataSTRU: Array<T>;
   booksLibrary: Array<B>;
+  notesLibrary: Array<N>;
 }
